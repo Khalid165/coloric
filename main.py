@@ -20,7 +20,6 @@ def allowed_folder(file_name):
 
 
 
-
 @app.route("/",methods=["POST","GET"])
 def home():
     if request.method=="POST":
