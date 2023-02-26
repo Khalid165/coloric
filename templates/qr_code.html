@@ -1,0 +1,54 @@
+{%include "header.html"%}
+<h1 >QR code Generator .</h1>
+<div class="card w-50 "  >
+  <div class="card-body">
+      {%with error=get_flashed_messages()%}
+    <p style="color:red;">{{error[0]}}</p>
+    {%endwith%}
+       <form method="post" enctype="multipart/form-data" style=" margin:50px;">
+           <label>URL</label>
+           <br>
+           <input type="url" name="url" style="width:100%;margin:20px auto" required>
+           <label style="margin-bottom:20px">Logo</label>
+           <br>
+        <input class="form-control me-2" type="file"  name="file" >
+           <label style="margin-top:20px">Choose color</label>
+           <br>
+           <select  name="colors" style="padding-right:100px;margin:20px auto;">
+               <option value="Black">Black</option>
+               <option value="Blue">Blue</option>
+               <option value="Red">Red</option>
+               <option value="Green">Green</option>
+               <option value="Yellow">Yellow</option>
+               <option value="Pink">Pink</option>
+               <option value="Prawn">Prawn</option>
+            </select>
+           <br>
+           <label style="margin-top:20px">Version </label>
+           <br>
+           <select  name="version" style="padding-right:100px;margin:20px auto;">
+               {%for i in range(1,41)%}
+               <option value="{{i}}">{{i}}</option>
+               {%endfor%}
+           </select>
+           <br>
+        <button type="submit" class="btn btn-outline-success" name="submit" style="width:150px">Generate </button>
+    </form>
+
+
+
+
+
+
+  </div>
+</div>
+{%if img%}
+    <div style="text-align:center;">
+      <img src="{{img}}" style="">
+            <form method="post" enctype="multipart/form-data" action="/download">
+                <a class="btn btn-outline-success" style="background-color:#FFF8EA;" href="{{url_for('download',filename=img.split('/')[2])}}">Save .</a>
+            </form>
+    </div>
+    {%endif%}
+
+{%include "footer.html"%}

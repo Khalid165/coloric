@@ -1,15 +1,38 @@
 .navbar{
     background-color:#FFF8EA;
 }
+
+.par{
+    text-align:left;
+    padding-top:20px;
+}
+
+.card{
+    background-color:#FFF8EA;
+}
+
 body{
     background-color:#9E7676;
+
 }
 
 .card {
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
+        width:50%;
+        margin-top:50px;
+
 }
+
+.card .card-header{
+    background-color:#EDDBC7
+}
+
+.card .btn{
+    background-color:#F8EAD8
+}
+
 
 .btn{
     margin:20px;
